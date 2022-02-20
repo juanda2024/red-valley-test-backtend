@@ -78,7 +78,6 @@ router.get('/email/:email', async function (req, res, next) {
 
 /* GET user with an specific username */
 router.get('/username/:username', async function (req, res, next) {
-    res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserByUsername(req.params.username).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ resultado: "No user found. Try with another email" });
@@ -89,7 +88,11 @@ router.get('/username/:username', async function (req, res, next) {
 
 /* POST user: login with information given as a JSON */
 router.post('/login', async function (req, res, next) {
-    res.set('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", '*');
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
     const { error } = login_dto.validate
         ({
             email: req.body.email,
