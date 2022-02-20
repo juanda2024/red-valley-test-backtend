@@ -144,7 +144,7 @@ router.post('/', async function (req, res, next) {
         return res.status(400).send({ message: error });
     }
     else {
-        const alreadyRegisteredEmail = await getUserByEmail(req.params.email);
+        const alreadyRegisteredEmail = await getUserByEmail(req.body.email);
         const usernameAlreadyExist = await getUserByUsername(req.body.username);
 
         if (alreadyRegisteredEmail === undefined || alreadyRegisteredEmail.length !== 0) {
