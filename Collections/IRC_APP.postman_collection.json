@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "00577077-3132-4ea2-b270-626df871eb60",
+		"name": "IRC_APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CHATS",
+			"item": [
+				{
+					"name": "CHAT - create chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"subject\": \"What do u think about postcuantic? \"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/chats/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - get all chats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/chats/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - add member",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"member\": \"620d802f7a7ff121b7c84f22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/chats/addMember/620da234834e4a7f3ee2762a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								"addMember",
+								"620da234834e4a7f3ee2762a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - add message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"620d8f4a7a7ff121b7c84f25\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/chats/addMessage/620da234834e4a7f3ee2762a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								"addMessage",
+								"620da234834e4a7f3ee2762a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - updates subject",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"Hey whats up!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/chats/subject/620da10f834e4a7f3ee27629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								"subject",
+								"620da10f834e4a7f3ee27629"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - search by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/chats/620d8eae7a7ff121b7c84f23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								"620d8eae7a7ff121b7c84f23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAT - delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/chats/620da10f834e4a7f3ee27629",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"chats",
+								"620da10f834e4a7f3ee27629"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MESSAGES",
+			"item": [
+				{
+					"name": "MESSAGE - create message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"date\": \"2022-01-21\",\n        \"chat\": \"620d8eae7a7ff121b7c84f23\",\n        \"content\": \"Nice to meet you!\",\n        \"contentType\": \"text\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/messages/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MESSAGE - search by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/messages/620d8f4a7a7ff121b7c84f25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								"620d8f4a7a7ff121b7c84f25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MESSAGE - delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/messages/620da60a74f30f83224b8f79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"messages",
+								"620da60a74f30f83224b8f79"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "USER - sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"first_name\": \"David\",\n        \"last_name\": \"Monsalve\",\n        \"email\": \"juanda2420@hotmail.com\",\n        \"username\": \"juanda248\",\n        \"password\": \"fta123\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"email\": \"juanda2420@hotmail.com\",\n        \"password\": \"fta123\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - update password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"patosalagua1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/password/620dc452275cea8c30fad90d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"password",
+								"620dc452275cea8c30fad90d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - update email",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"yonosemañana@hotmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/email/620dc452275cea8c30fad90d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"email",
+								"620dc452275cea8c30fad90d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - update username",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"juanda2420\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/username/620dc452275cea8c30fad90d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"username",
+								"620dc452275cea8c30fad90d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - add chat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"620d8eae7a7ff121b7c84f23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/addChat/620dc452275cea8c30fad90d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"addChat",
+								"620dc452275cea8c30fad90d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/620dc452275cea8c30fad90d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"620dc452275cea8c30fad90d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - get by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/email/juanda248@hotmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"email",
+								"juanda248@hotmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - get by username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/username/juanda2420",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"username",
+								"juanda2420"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER - delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRGF2aWQiLCJsYXN0X25hbWUiOiJNb25zYWx2ZSIsImVtYWlsIjoianVhbmRhMjQyMEBob3RtYWlsLmNvbSIsInVzZXJuYW1lIjoianVhbmRhMjQ4IiwicGFzc3dvcmQiOiIkMmIkMTAkeVVZNFNXanRDNUdERm96Ly91c1FBdUFrYlhvRmlVSmRWdmpibkxNcm8yeFlKVnVXVG15TnkiLCJjaGF0cyI6W10sIl9pZCI6IjYyMGRjNDUyMjc1Y2VhOGMzMGZhZDkwZCIsImlhdCI6MTY0NTA2OTM5NCwiZXhwIjoxNjQ1MDc2NTk0fQ.ZfUjkxUOXeLBdLgnbs90Bt1z8O7EKEBE_Sc9YGV6QsI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/620d802f7a7ff121b7c84f22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"620d802f7a7ff121b7c84f22"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
