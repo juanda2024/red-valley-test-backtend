@@ -56,6 +56,7 @@ const newChat_dto = Joi.object({
 
 /* GET user with an specific id */
 router.get('/:id', async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ resultado: "No user found. Try with another id" });
@@ -66,6 +67,7 @@ router.get('/:id', async function (req, res, next) {
 
 /* GET user with an specific email */
 router.get('/email/:email', async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserByEmail(req.params.email).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ resultado: "No user found. Try with another email" });
@@ -76,6 +78,7 @@ router.get('/email/:email', async function (req, res, next) {
 
 /* GET user with an specific username */
 router.get('/username/:username', async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserByUsername(req.params.username).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ resultado: "No user found. Try with another email" });
@@ -86,6 +89,7 @@ router.get('/username/:username', async function (req, res, next) {
 
 /* POST user: login with information given as a JSON */
 router.post('/login', async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     const { error } = login_dto.validate
         ({
             email: req.body.email,
@@ -124,6 +128,7 @@ router.post('/login', async function (req, res, next) {
 
 /* POST user: with information as a JSON */
 router.post('/', async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     const { error } = user_structure.validate
         ({
             first_name: req.body.first_name,
@@ -168,6 +173,7 @@ router.post('/', async function (req, res, next) {
 
 /* PUT user: updates the user´s password */
 router.put('/password/:id', auth, async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     var bool = true;
     var verificacion = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
@@ -201,6 +207,7 @@ router.put('/password/:id', auth, async function (req, res, next) {
 
 /* PUT user: updates the user´s email */
 router.put('/email/:id', auth,  async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     var bool = true;
     var verificacion = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
@@ -233,6 +240,7 @@ router.put('/email/:id', auth,  async function (req, res, next) {
 
 /* PUT user: updates the user´s username */
 router.put('/username/:id', auth, async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     var bool = true;
     var verificacion = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
@@ -265,6 +273,7 @@ router.put('/username/:id', auth, async function (req, res, next) {
 
 /* PUT user: add a user´s chat */
 router.put('/addChat/:id', auth, async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     var bool = true;
     var verificacion = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
@@ -297,6 +306,7 @@ router.put('/addChat/:id', auth, async function (req, res, next) {
 
 /* DELETE user with an specific id */
 router.delete('/:id', auth, async function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
     var bool = true;
     var verificacion = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
