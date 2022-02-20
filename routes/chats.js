@@ -36,7 +36,7 @@ router.get('/', async function (req, res, next) {
 
 
 /* GET chats with an specific id */
-router.get('/:id', async function (req, res, next) {
+router.get('/:id', auth, async function (req, res, next) {
     const rta = await getChat(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ message: "The chat was not found. Try with another id" });
