@@ -26,7 +26,7 @@ const message_dto = Joi.object({
 router.get('/', async function (req, res, next) {
     const chats = await getChats().then((result) => {
         if (result == null || result[0] == null) {
-            res.status(404).send({ resultado: "No chats where found." })
+            res.status(404).send({ message: "No chats where found." })
         }
         else {
             res.status(200).send(result);
@@ -39,7 +39,7 @@ router.get('/', async function (req, res, next) {
 router.get('/:id', async function (req, res, next) {
     const rta = await getChat(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
-            return res.status(404).send({ resultado: "The chat was not found. Try with another id" });
+            return res.status(404).send({ message: "The chat was not found. Try with another id" });
         }
         res.status(200).send(result);
     });
@@ -54,7 +54,7 @@ router.post('/', auth, async function (req, res, next) {
         });
 
     if (error) {
-        return res.status(400).send({ mensaje: error });
+        return res.status(400).send({ message: error });
     }
 
     else {
@@ -86,7 +86,7 @@ router.put('/subject/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var rta = await changeChatSubject(req.params.id, req.body.subject).then((result) => {
@@ -122,7 +122,7 @@ router.put('/addMember/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var rta = await addMember(req.params.id, req.body.member).then((result) => {
@@ -150,7 +150,7 @@ router.put('/addMessage/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var rta = await addMessage(req.params.id, req.body.message).then((result) => {

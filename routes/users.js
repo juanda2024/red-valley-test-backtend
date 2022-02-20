@@ -59,7 +59,7 @@ router.get('/:id', async function (req, res, next) {
     res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserById(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
-            return res.status(404).send({ resultado: "No user found. Try with another id" });
+            return res.status(404).send({ message: "No user found. Try with another id" });
         }
         res.status(200).send(result);
     });
@@ -70,7 +70,7 @@ router.get('/email/:email', async function (req, res, next) {
     res.set('Access-Control-Allow-Origin', '*');
     const rta = await getUserByEmail(req.params.email).then((result) => {
         if (result === null || result[0] == null) {
-            return res.status(404).send({ resultado: "No user found. Try with another email" });
+            return res.status(404).send({ message: "No user found. Try with another email" });
         }
         res.status(200).send(result);
     });
@@ -80,7 +80,7 @@ router.get('/email/:email', async function (req, res, next) {
 router.get('/username/:username', async function (req, res, next) {
     const rta = await getUserByUsername(req.params.username).then((result) => {
         if (result === null || result[0] == null) {
-            return res.status(404).send({ resultado: "No user found. Try with another email" });
+            return res.status(404).send({ message: "No user found. Try with another email" });
         }
         res.status(200).send(result);
     });
@@ -99,7 +99,7 @@ router.post('/login', async function (req, res, next) {
         });
 
     if (error) {
-        return res.status(400).send({ mensaje: error });
+        return res.status(400).send({ message: error });
     }
     else {
         var bool = true;
@@ -141,17 +141,17 @@ router.post('/', async function (req, res, next) {
         });
 
     if (error) {
-        return res.status(400).send({ mensaje: error });
+        return res.status(400).send({ message: error });
     }
     else {
         const alreadyRegisteredEmail = await getUserByEmail(req.params.email);
         const usernameAlreadyExist = await getUserByUsername(req.body.username);
 
         if (alreadyRegisteredEmail === undefined || alreadyRegisteredEmail.length !== 0) {
-            return res.status(409).send("This email is already registered. try to Login");
+            return res.status(409).send({message: "This email is already registered. try to Login"});
         }
         if(usernameAlreadyExist === undefined || usernameAlreadyExist.length !== 0){
-            return res.status(409).send("This username is already taken. try with another");
+            return res.status(409).send({message: "This username is already taken. try with another"});
         }
 
         const encryptedPassword = await bcrypt.hash(req.body.password, 10);
@@ -194,7 +194,7 @@ router.put('/password/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             const encryptedPassword = await bcrypt.hash(req.body.password, 10);
@@ -228,7 +228,7 @@ router.put('/email/:id', auth,  async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var resultado = await updateUserEmail(req.params.id, req.body.email).then((result) => {
@@ -261,7 +261,7 @@ router.put('/username/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var resultado = await updateUserUsername(req.params.id, req.body.username).then((result) => {
@@ -294,7 +294,7 @@ router.put('/addChat/:id', auth, async function (req, res, next) {
             });
 
         if (error) {
-            return res.status(400).send({ mensaje: error });
+            return res.status(400).send({ message: error });
         }
         else {
             var resultado = await addChat(req.params.id, req.body.id).then((result) => {

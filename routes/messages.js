@@ -26,7 +26,7 @@ const message_structure = Joi.object({
 router.get('/:id', async function (req, res, next) {
     const rta = await getMessage(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
-            return res.status(404).send({ resultado: "No message found. Try with another id" });
+            return res.status(404).send({ message: "No message found. Try with another id" });
         }
         res.status(200).send(result);
     });
@@ -44,12 +44,12 @@ router.post('/', auth, async function (req, res, next) {
         });
 
     if (error) {
-        return res.status(400).send({ mensaje: error });
+        return res.status(400).send({ message: error });
     }
 
     else {
         if(!req.user.chats.includes(req.body.chat)){
-            return res.status(404).send({ mensaje: "You are not registered in this chat Please check." });
+            return res.status(404).send({ message: "You are not registered in this chat Please check." });
         }
         else{
             var new_message =
