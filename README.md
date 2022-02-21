@@ -14,7 +14,7 @@ para verificar que esté corriendo en local, debe decir BACK RUNNNING.
 
 OJO es necesario crear archivo .env con la URI de mongo, y el token de autorización de JWT. (esta información me la pueden solicitar personalmente, puesto que es buena practica de desarrollo no dejar información de conexiones a BD y por supuesto la info del token de JWT). 
 
-## Desplegado: 
+## Desplegado: 
 
 (link del back desplegado en heroku)
 https://intense-basin-05348.herokuapp.com/
