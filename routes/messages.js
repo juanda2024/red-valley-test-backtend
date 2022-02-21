@@ -48,10 +48,6 @@ router.post('/', auth, async function (req, res, next) {
     }
 
     else {
-        if(!req.user.chats.includes(req.body.chat)){
-            return res.status(404).send({ message: "You are not registered in this chat Please check." });
-        }
-        else{
             var new_message =
             {
                 owner: ObjectId(req.user.user_id),
@@ -62,7 +58,6 @@ router.post('/', auth, async function (req, res, next) {
             }
             const mess = await insertMessage(new_message);
             res.status(200).send(mess);
-        }
     }
 });
 
