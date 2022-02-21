@@ -182,7 +182,7 @@ router.put('/password/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The user with the given id was not found."});
         }
-        else if(req.params.id !== req.user._id){
+        else if(req.params.id !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You cannot update someone´s else password."});
         }
@@ -216,7 +216,7 @@ router.put('/email/:id', auth,  async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The user with the given id was not found."});
         }
-        else if(req.params.id !== req.user._id){
+        else if(req.params.id !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You cannot update someone´s else email."});
         }
@@ -249,7 +249,7 @@ router.put('/username/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The user with the given id was not found."});
         }
-        else if(req.params.id !== req.user._id){
+        else if(req.params.id !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You cannot update someone´s else username."});
         }
@@ -282,7 +282,7 @@ router.put('/addChat/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The user with the given id was not found."});
         }
-        else if(req.params.id !== req.user._id){
+        else if(req.params.id !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You dont have permissions to do this."});
         }
@@ -315,7 +315,7 @@ router.delete('/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The user with the given id was not found."});
         }
-        else if(req.params.id !== req.user._id){
+        else if(req.params.id !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You dont have permissions to do this."});
         }

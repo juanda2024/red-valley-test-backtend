@@ -54,7 +54,7 @@ router.post('/', auth, async function (req, res, next) {
         else{
             var new_message =
             {
-                owner: ObjectId(req.user._id),
+                owner: ObjectId(req.user.user_id),
                 date: new Date(req.body.date +'T14:56:59.301Z'),
                 chat: ObjectId(req.body.chat),
                 content: req.body.content,
@@ -74,7 +74,7 @@ router.delete('/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The message with the given id was not found."});
         }
-        else if(result[0].owner !== req.user._id){
+        else if(result[0].owner !== req.user.user_id){
             bool = false;
             return res.status(404).send({ message: "You dont have permissions to do this."});
         }

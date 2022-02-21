@@ -106,11 +106,13 @@ router.put('/addMember/:id', auth, async function (req, res, next) {
             bool = false;
             return res.status(404).send({ message: "The chat with that id was not found."});
         }
-        if(req.user._id !== req.body.member) {
+        console.log(req.user.user_id);
+        console.log(req.body.member)
+        if(req.user.user_id !== req.body.member) {
             bool = false;
             return res.status(404).send({ message: "You dont have permissions to do this."});
         }
-        if(result[0].membersList.includes(req.user._id)){
+        if(result[0].membersList.includes(req.user.user_id)){
             bool = false;
             return res.status(404).send({ message: "The user is already registered in this chat."}); 
         }
