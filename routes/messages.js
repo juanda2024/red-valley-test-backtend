@@ -23,7 +23,7 @@ const message_structure = Joi.object({
 });
 
 /* GET message with an specific id */
-router.get('/:id', async function (req, res, next) {
+router.get('/:id', auth, async function (req, res, next) {
     const rta = await getMessage(req.params.id).then((result) => {
         if (result === null || result[0] == null) {
             return res.status(404).send({ message: "No message found. Try with another id" });
